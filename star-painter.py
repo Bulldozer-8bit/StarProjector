@@ -68,8 +68,6 @@ for star in stars_data:
 print("添加高斯模糊，模拟星光晕影...")
 # 复制一份作为底层
 blur_layer = canvas.filter(ImageFilter.GaussianBlur(radius=3))
-# 叠加：Pillow 叠加比较麻烦，通常底层模糊，上层硬点。这里用硬点叠加在模糊上。
-canvas.paste(blur_layer, (0, 0), blur_layer) 
 # 上面两行叠加有点复杂，简单点：我们直接给原图加一个细微模糊
 canvas = canvas.filter(ImageFilter.GaussianBlur(radius=0.7))
 
